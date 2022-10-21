@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCatelogsTable extends Migration
+class CreateCatalogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCatelogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('catelogs', function (Blueprint $table) {
+        Schema::create('catalogs', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->comment('名稱')->nullable(false);
             $table->tinyInteger('mid')->unsigned()->comment('廠商編號')->nullable(false);
@@ -33,6 +33,6 @@ class CreateCatelogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catelogs');
+        Schema::dropIfExists('catalogs');
     }
 }
