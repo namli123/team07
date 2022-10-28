@@ -16,7 +16,7 @@ class CreateManufacturersTable extends Migration
         Schema::create('manufacturers', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->comment('遊戲廠商公司')->nullable(false);
-            $table->tinyInteger('capital')->comment('資本額')->nullable(false);
+            $table->double('capital')->comment('資本額')->nullable(false);
             $table->date('found_at')->comment('成立日期')->nullable(true);
             $table->string('national',100)->comment('國籍')->nullable(false);
             $table->timestamps();
