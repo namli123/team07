@@ -23,6 +23,9 @@
     </style>
 </head>
 <body>
+    <div>
+        <a href="{{url('manufacturers/')}}" >manufacturers</a>  
+    </div>
 <div class="details">
     <table>
             <tr>
@@ -46,7 +49,18 @@
                 <td>{{$catalog->issue_date }}</td>
                 <td>{{$catalog->revenue }}</td>
                 <td>{{$catalog->game_type }}</td>
-                <td><button id="btn1">删除</button>|<button id="btn2">更新</button></td>
+                <td>
+                    <form action="{{ url('catalogs/delete', ['id' => $catalog->id]) }}" method="post">
+                        <input id="btn1" class="btn btn-default" type="submit" value="刪除" />
+                        @method('delete')
+                        @csrf
+                    </form> 
+                    <a href="{{url('catalogs/edit', ['id' => $catalog->id])}}">edit</a>
+                </td>
+                
+                
+                    
+                    
             </tr> 
          @endforeach
     </table>

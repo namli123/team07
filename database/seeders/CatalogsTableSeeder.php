@@ -44,7 +44,7 @@ class CatalogsTableSeeder extends Seeder
             $gametype = $this->generateRandomGameType();
             DB::table('catalogs')->insert([
                 'name' => $name,
-                'mid' => rand(1, 100),
+                'mid' => rand(1, 25),
                 'price' =>  rand(90, 500),
                 'evaluaation' => rand(90, 500),
                 'issue_date' => $random_datetime,

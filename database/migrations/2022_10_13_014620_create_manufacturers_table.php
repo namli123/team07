@@ -18,7 +18,7 @@ class CreateManufacturersTable extends Migration
             $table->string('name', 100)->comment('遊戲廠商公司')->nullable(false);
             $table->double('capital')->comment('資本額')->nullable(false);
             $table->date('found_at')->comment('成立日期')->nullable(true);
-            $table->string('national',100)->comment('國籍')->nullable(false);
+            $table->string('national',100)->comment('国家')->nullable(false);
             $table->timestamps();
         });
     }
