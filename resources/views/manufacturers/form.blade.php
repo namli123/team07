@@ -16,7 +16,7 @@
     {!! Form::text('found_at', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('national', '国籍') !!}
+    {!! Form::label('national', '國家') !!}
     {!! Form::text('national', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">

@@ -2,7 +2,7 @@
 
 @section('title', 'game')
 
-@section('game_theme', 'game')
+@section('game_theme')
 
 @section('game_contents')
 <style>
@@ -23,7 +23,7 @@
 </style>
 
     <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-        <a href=" {{ url('catalogs/create/') }} ">新增球員</a><br>
+        <a href=" {{ url('catalogs/create/') }} ">新增游戲</a><br>
         <a href="{{ url('/') }} ">所有游戲</a>
     </div>
     <table> 

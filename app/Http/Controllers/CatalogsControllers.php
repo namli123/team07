@@ -22,8 +22,18 @@ class CatalogsControllers extends Controller
     }
     public function edit($id)
     {
+        $catalogs = DB::table('manufacturers')
+        ->select('manufacturers.id', 'manufacturers.name')
+        ->orderBy('manufacturers.id', 'asc')
+        ->get();
+
+        $data = [];
+        foreach ($catalogs as $catalog)
+        {
+            $data[$catalog->id] = $catalog->name;
+        }
         $catalogs = catalogs::findOrFail($id);
-        return view('catalogs.edit', ['catalogs'=>$catalogs]);
+        return view('catalogs.edit', ['catalogs'=>$catalogs, 'manufacturers'=>$data]);
     }
     public function update($id)
     {
@@ -56,7 +66,7 @@ class CatalogsControllers extends Controller
         {
             $data[$catalog->id] = $catalog->name;
         }
-        return view('catalogs.create',['data'=>$data]);
+        return view('catalogs.create',['manufacturers'=>$data]);
     }
     public function store()
     {

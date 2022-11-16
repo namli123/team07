@@ -8,8 +8,8 @@
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('mid', '廠商編號') !!}
-    {!! Form::text('mid', null, ['class' => 'form-control']) !!}
+    {!! Form::label('mid', '所有廠商公司') !!}
+    {!! Form::select('mid', $manufacturers, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('price', '價格') !!}
@@ -21,7 +21,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('issue_date', '發行日期') !!}
-    {!! Form::text('issue_date', null, ['class' => 'form-control']) !!}
+    {!! Form::date('issue_date', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('revenue', '硬手') !!}

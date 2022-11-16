@@ -1,9 +1,9 @@
 
 @extends('app')
 
-@section('title', 'game')
+@section('title', 'manufacturers')
 
-@section('game_theme', 'game')
+@section('game_theme')
 
 @section('game_contents')
 
@@ -24,8 +24,8 @@
         }
     </style>
     <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-        <a href="">新增GAME</a>
-        <a href="{{ url('manufacturers/') }} ">所有GAME</a>
+        <a href="{{url('manufacturers/create')}}">新增游戲公司</a><br>
+        <a href="{{ url('manufacturers/') }} ">所有游戲公司</a>
     </div>
     <table>
             <tr>
