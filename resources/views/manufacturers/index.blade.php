@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+@extends('app')
+
+@section('title', 'game')
+
+@section('game_theme', 'game')
+
+@section('game_contents')
+
     <style>
         .details {
             text-align: center;
@@ -21,12 +23,10 @@
             background-color:green;
         }
     </style>
-</head>
-<body>
-<div>
-    <a href="{{url('catalogs/')}}">catalogs</a>
-</div>
-<div class="details">
+    <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+        <a href="">新增GAME</a>
+        <a href="{{ url('manufacturers/') }} ">所有GAME</a>
+    </div>
     <table>
             <tr>
                 <th>id</th>
@@ -34,7 +34,9 @@
                 <th>資本額</th>
                 <th>成立日期</th>
                 <th>國家</th>
-                <th>更改</th> 
+                <th>操作 1</th>
+                <th>操作 2</th>
+                <th>操作 3</th>
             </tr>
         @foreach($manufacturers as $manufacturers)
             <tr>
@@ -43,19 +45,19 @@
                 <td>{{$manufacturers->capital }}</td>
                 <td>{{$manufacturers->found_at }}</td>
                 <td>{{$manufacturers->national }}</td>  
+                <td><a href="{{ url('manufacturers/show', ['id'=>$manufacturers->id]) }}">顯示</a></td>
                 <td>
                     <form action="{{ url('manufacturers/delete', ['id' => $manufacturers->id]) }}" method="post">
                         <input id="btn1" class="btn btn-default" type="submit" value="刪除" />
                         @method('delete')
                         @csrf
                     </form> 
-                    <a href="{{url('manufacturers/edit', ['id' => $manufacturers->id])}}">Edit</a>
+                    
                 </td>
+                <td><a href="{{url('manufacturers/edit', ['id' => $manufacturers->id])}}">Edit</a></td>
             </tr> 
          @endforeach
     </table>
-</div>
-</body>
-</html>
+@endsection
 
 

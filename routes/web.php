@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CreateCatalogsControllers;
-use App\Http\Controllers\CreateManufacturersControllers;
+use App\Http\Controllers\CatalogsControllers;
+use App\Http\Controllers\ManufacturersControllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,23 +15,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 
 
 
 
-Route::get('catalogs/', [CreateCatalogsControllers::class, 'index']);
-Route::get('manufacturers/', [CreateManufacturersControllers::class, 'index']);
+Route::get('/', [CatalogsControllers::class, 'index']);
+Route::get('manufacturers/', [ManufacturersControllers::class, 'index']);
+
+Route::get('catalogs/create', [CatalogsControllers::class, 'create']);
+Route::get('manufacturers/create', [ManufacturersControllers::class, 'create']);
+
+Route::post('catalogs/store', [CatalogsControllers::class, 'store']);
+Route::get('catalogs/show/{id}', [CatalogsControllers::class, 'show'])->where('id', '[0-9]+');
+Route::delete('catalogs/delete/{id}/', [CatalogsControllers::class, 'delete'])->where('id', '[0-9]+');
+Route::get('catalogs/edit/{id}/', [CatalogsControllers::class, 'edit'])->where('id', '[0-9]+');
+Route::patch('catalogs/update/{id}', [CatalogsControllers::class, 'update'])->where('id', '[0-9]+');
 
 
-Route::delete('catalogs/delete/{id}/', [CreateCatalogsControllers::class, 'delete'])->where('id', '[0-9]+');
-Route::get('catalogs/edit/{id}/', [CreateCatalogsControllers::class, 'edit'])->where('id', '[0-9]+');
-Route::patch('catalogs/update/{id}', [CreateCatalogsControllers::class, 'update'])->where('id', '[0-9]+');
-
-Route::delete('manufacturers/delete/{id}/', [CreateManufacturersControllers::class, 'delete'])->where('id', '[0-9]+');
-Route::get('manufacturers/edit/{id}/', [CreateManufacturersControllers::class, 'edit'])->where('id', '[0-9]+');
-Route::patch('manufacturers/update/{id}', [CreateManufacturersControllers::class, 'update'])->where('id', '[0-9]+');
+Route::get('manufacturers/show/{id}', [ManufacturersControllers::class, 'show'])->where('id', '[0-9]+');
+Route::delete('manufacturers/delete/{id}/', [ManufacturersControllers::class, 'delete'])->where('id', '[0-9]+');
+Route::get('manufacturers/edit/{id}/', [ManufacturersControllers::class, 'edit'])->where('id', '[0-9]+');
+Route::patch('manufacturers/update/{id}', [ManufacturersControllers::class, 'update'])->where('id', '[0-9]+');

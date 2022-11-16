@@ -38,14 +38,14 @@ class ManufacturersTableSeeder extends Seeder
     }
     public function run()
     {
-        for ($i=0; $i<500; $i++)
+        for ($i=0; $i<100; $i++)
         {
             $name = $this->generateRandomName();
             $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
             $national = $this->generateRandomNational();
             DB::table('manufacturers')->insert([
                 'name' => $name,
-                'capital' => rand(90, 500),
+                'capital' => rand(10, 100),
                 'found_at' => $random_datetime,
                 'national' => $national,
                 'created_at' => $random_datetime,

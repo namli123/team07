@@ -37,16 +37,16 @@ class CatalogsTableSeeder extends Seeder
     }
     public function run()
     {
-        for ($i=0; $i<25; $i++) 
+        for ($i=0; $i<100; $i++) 
         {
             $name = $this->generateRandomName();
             $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
             $gametype = $this->generateRandomGameType();
             DB::table('catalogs')->insert([
                 'name' => $name,
-                'mid' => rand(1, 25),
-                'price' =>  rand(90, 500),
-                'evaluaation' => rand(90, 500),
+                'mid' => rand(1, 100),
+                'price' =>  rand(10, 100),
+                'evaluaation' => rand(90, 100),
                 'issue_date' => $random_datetime,
                 'revenue' => rand(10000, 900000),
                 'game_type' => $gametype,

@@ -1,10 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Models\manufacturers;
+use App\Models\catalogs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class CreateManufacturersControllers extends Controller
+class ManufacturersControllers extends Controller
 {
     public function index()
     {
@@ -30,6 +31,26 @@ class CreateManufacturersControllers extends Controller
         $manufacturers->found_at = request('found_at'); 
         $manufacturers->national = request('national');  
         $manufacturers->save();
+        return redirect('/manufacturers');
+    }
+    public function show($id)
+    {
+        $manufacturers = manufacturers::findOrFail($id);
+        $catalogs = catalogs::findOrFail($manufacturers->id);
+        return view('manufacturers.show', ['manufacturers' => $manufacturers, 'catalogs' =>  $catalogs->name]);
+    }
+    public function create(){
+        return view('manufacturers.create');
+    }
+    public function store()
+    {
+        $catalogs = manufacturers::create([
+            'name'=>request('name'),
+            'capital'=>request('capital'),
+            'found_at'=>request('found_at'), 
+            'national'=>request('national'), 
+        ]);
+        
         return redirect('/manufacturers');
     }
 }

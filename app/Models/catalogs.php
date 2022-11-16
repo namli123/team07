@@ -12,7 +12,7 @@ class catalogs extends Model
         'name',
         'mid',
         'price',
-        'evaluation',
+        'evaluaation',
         'issue_date',
         'revenue',
         'game_type',
