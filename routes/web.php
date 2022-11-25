@@ -33,8 +33,8 @@ Route::delete('catalogs/delete/{id}/', [CatalogsControllers::class, 'delete'])->
 Route::get('catalogs/edit/{id}/', [CatalogsControllers::class, 'edit'])->where('id', '[0-9]+');
 Route::patch('catalogs/update/{id}', [CatalogsControllers::class, 'update'])->where('id', '[0-9]+');
 
-
-Route::get('manufacturers/show/{id}', [ManufacturersControllers::class, 'show'])->where('id', '[0-9]+');
+Route::post('manufacturers/store', [ManufacturersControllers::class, 'store']);
+Route::get('manufacturers/show/{id}', [ManufacturersControllers::class, 'show'])->where('id', '[0-9]+')->name('manufacturers.show');
 Route::delete('manufacturers/delete/{id}/', [ManufacturersControllers::class, 'delete'])->where('id', '[0-9]+');
 Route::get('manufacturers/edit/{id}/', [ManufacturersControllers::class, 'edit'])->where('id', '[0-9]+');
 Route::patch('manufacturers/update/{id}', [ManufacturersControllers::class, 'update'])->where('id', '[0-9]+');

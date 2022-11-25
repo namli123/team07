@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\manufacturers;
+
 use App\Models\catalogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,8 +37,8 @@ class ManufacturersControllers extends Controller
     public function show($id)
     {
         $manufacturers = manufacturers::findOrFail($id);
-        $catalogs = catalogs::findOrFail($manufacturers->id);
-        return view('manufacturers.show', ['manufacturers' => $manufacturers, 'catalogs' =>  $catalogs->name]);
+        $catalogs = $manufacturers->catalogs;
+        return view('manufacturers.show', ['manufacturers' => $manufacturers, 'catalogs' =>  $catalogs]);
     }
     public function create(){
         return view('manufacturers.create');
@@ -50,7 +51,6 @@ class ManufacturersControllers extends Controller
             'found_at'=>request('found_at'), 
             'national'=>request('national'), 
         ]);
-        
         return redirect('/manufacturers');
     }
 }

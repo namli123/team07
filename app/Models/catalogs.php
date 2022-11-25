@@ -19,4 +19,7 @@ class catalogs extends Model
         'created_at',
         'updated_at'
     ];
+    public function manufacturers(){
+        return $this->belongsTo("App\Models\manufacturers",'mid', 'id');
+    }
 }

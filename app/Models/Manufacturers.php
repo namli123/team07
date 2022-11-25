@@ -16,4 +16,12 @@ class manufacturers extends Model
         'created_at',
         'updated_at'
     ];
+    public function catalogs(){
+        return $this->hasMany("App\Models\catalogs", 'mid');
+    }
+    public function delete()
+    {
+        $this->catalogs()->delete();
+        return parent::delete();
+    }
 }
